@@ -1,10 +1,10 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.11.2"
+lock "~> 3.12.1"
 
 set :stages, %w(production staging)
 set :default_stage, "production"
 
-set :application, "courrierboss"
+set :application, "omaster"
 set :repo_url, "https://github.com/thkernel/omaster.git"
 #set :ssh_options, { auth_methods: %w(password), password: "AMOSXZIBITDE88" }
 
