@@ -1,0 +1,61 @@
+<%= form_with(model: task, local: false) do |form| %>
+  <div class="modal-body">
+    <ul class="errors">
+    </ul>
+
+  <div class="row">
+    <div class="col-md-6">
+
+      <div class="form-group">
+        <%= form.label :task_type_id, "Type"%>
+        <%= form.collection_select(:task_type_id, @task_types, :id, :name, {prompt: "Sélectionner"}, class: "form-control", style: "width: 100%;", required: true) %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :title, "Titre" %>
+        <%= form.text_field :title,  class: "form-control", placeholder: "#{t(:title)}", id: :task_title, required: true %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :start_date, "Date début" %>
+        <%= form.date_field :start_date,  class: "form-control", id: :task_start_date, required: true %>
+      </div>
+
+
+
+
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label :end_date, "Date fin" %>
+        <%= form.date_field :end_date,  class: "form-control",  id: :task_end_date, required: true %>
+      </div>
+      <div class="form-group">
+        <%= form.label :closing_date, "Date clôture" %>
+        <%= form.date_field :closing_date,  class: "form-control",  id: :task_closing_date %>
+      </div>
+      <div class="form-group">
+        <%= form.label :task_status_id, "Statut"%>
+        <%= form.collection_select(:task_status_id, @task_statuses, :id, :name, {prompt: "Sélectionner"}, class: "form-control", style: "width: 100%;", required: true) %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= form.label :description %>
+        <%= form.text_area :description,  class: "form-control", placeholder: "Description", id: :task_short_description %>
+      </div>
+    </div>
+  </div>
+  </div><!-- modal body -->
+  <div class="modal-footer">
+    <%= link_to "Annuler", "#", class: "btn btn-secondary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1", data: {dismiss: "modal"} %>
+    <%= form.submit  class: "btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1",  "data-loading-text"=>"Loading...", autocomplete: "off" %>
+  </div>
+
+
+
+<% end %>

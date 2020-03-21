@@ -1,0 +1,2 @@
+module ArrivalMailsHelper
+end

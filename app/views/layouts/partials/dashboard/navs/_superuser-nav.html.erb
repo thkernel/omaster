@@ -1,0 +1,142 @@
+<!-- ########## START: LEFT PANEL ########## -->
+
+      <ul class="br-sideleft-menu">
+       <li class="br-menu-item">
+          <%= link_to  raw('<i class="fa fa-home tx-20"></i> <span class="menu-item-label">Tableau de bord</span>'), dashboard_path, class: "br-menu-link active" %>
+        </li><!-- br-menu-item -->
+
+       
+
+        <li class="br-menu-item">
+          <a href="#" class="br-menu-link with-sub">
+            <i class="fa fa-envelope-o tx-20"></i>
+            <span class="menu-item-label">Courriers</span>
+          </a><!-- br-menu-link -->
+          <ul class="br-menu-sub">
+            
+            <li class="sub-item">
+                <%= link_to  "Courriers Arrivée", arrival_mails_path, class: "sub-link" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Courrier Départ", departure_mails_path, class: "sub-link" %>
+            </li>
+
+          
+
+            <li class="sub-item">
+                <%= link_to  "Recherche tâches", search_tasks_path, class: "sub-link" %>
+            </li>
+
+             <li class="sub-item">
+                <%= link_to  "Tâches non soldées", root_path, class: "sub-link" %>
+            </li>
+
+           
+
+
+          </ul>
+        </li>
+
+
+        <li class="br-menu-item">
+          <a href="#" class="br-menu-link with-sub">
+            <i class="fa fa-archive tx-20"></i>
+            <span class="menu-item-label">Archives</span>
+          </a><!-- br-menu-link -->
+          <ul class="br-menu-sub">
+            
+
+            <li class="sub-item">
+                <%= link_to  "Courrier d'arrivée", arrival_mails_archives_path, class: "sub-link" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Courrier départ", departure_mails_archives_path, class: "sub-link" %>
+            </li>
+
+            
+ 
+
+          </ul>
+        </li>
+
+       
+<!--
+        <li class="br-menu-item">
+          <%= link_to  raw('<i class="fa fa-home tx-20"></i> <span class="menu-item-label">Propriétés</span>'), root_path, class: "br-menu-link" %>
+        </li> br-menu-item -->
+
+
+
+
+      
+
+        
+        <li class="br-menu-item">
+          <a href="#" class="br-menu-link with-sub">
+            <i class="fa fa-cog tx-20"></i>
+            <span class="menu-item-label">Paramètres</span>
+          </a><!-- br-menu-link -->
+          <ul class="br-menu-sub">
+            
+            <li class="sub-item">
+                <%= link_to  "Utilisateurs", all_users_path, class: "sub-link" %>
+            </li>
+
+            
+
+            <li class="sub-item">
+                <%= link_to  "Services", services_path, class: "sub-link" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Types de registre", register_types_path, class: "sub-link" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Registres", registers_path, class: "sub-link" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Types de tâches", task_types_path, class: "sub-link" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Statuts de tâches", task_statuses_path, class: "sub-link" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Type de correspondants", correspondent_types_path, class: "sub-link" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Correspondants", correspondents_path, class: "sub-link" %>
+            </li>
+            <li class="sub-item">
+                <%= link_to  "Motifs d'imputation", imputation_reasons_path, class: "sub-link" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Dossiers", folders_path, class: "sub-link" %>
+            </li>
+            <li class="sub-item">
+                <%= link_to  "Classeurs", binders_path, class: "sub-link" %>
+            </li>
+
+             
+           
+
+           
+
+          </ul>
+        </li>
+       
+      </ul><!-- br-sideleft-menu -->
+
+      
+       
+        
+      </div><!-- info-list -->
+
+    <!-- ########## END: LEFT PANEL ########## -->

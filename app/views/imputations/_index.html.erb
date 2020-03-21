@@ -1,0 +1,26 @@
+ <% @imputations.each do |imputation| %>
+      <tr>
+        <td><%= service_name(imputation.service_id) %></td>
+        <td><%= profile(imputation.recipient_id).full_name %></td>
+        <td><%= imputation_tasks_count(imputation.id) %></td>
+        <td><%= imputation.status %></td>
+        <td>
+          <span class="">
+            <%= link_to "Tâches",imputation_tasks_path(imputation.id) %>
+          </span>
+
+        <span class="action-buttons">
+			<%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'),  edit_imputation_path(imputation), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), imputation_delete_path(imputation), remote: true, title: "Supprimer", class: "delete" %>
+</span>
+</td>
+
+
+      </tr>
+    <% end %>

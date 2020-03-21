@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @imputation_reason.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @imputation_reason.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @imputation_reason.status %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @imputation_reason.user %>
+</p>
+
+<%= link_to 'Edit', edit_imputation_reason_path(@imputation_reason) %> |
+<%= link_to 'Back', imputation_reasons_path %>

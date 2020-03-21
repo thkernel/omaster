@@ -1,0 +1,33 @@
+<%= form_with(model: imputation, local: false) do |form| %>
+ <div class="modal-body">
+    <ul class="errors">
+    </ul>
+
+
+  <div class="form-group">
+    <%= form.label :service_id %>
+    <%= form.collection_select(:service_id, @services, :id, :name, {prompt: "Sélectionner"}, class: "form-control", style: "width: 100%",  required: true) %> 
+
+  </div>
+
+  <div class="form-group">
+    <%= form.label :recipient_id, "Destinataire" %>
+    <%= form.collection_select(:recipient_id, @recipients, :id, :full_name, {prompt: "Sélectionner"}, class: "form-control", style: "width: 100%",  required: true) %> 
+
+  </div>
+  <div class="form-group">
+    <%= fields_for :imputation_reasons do |f| %>
+      <%= f.label "Motifs" %>
+      <%= collection_select(:imputation_reasons, :id,  @imputation_reasons, :id, :name, {selected: (@selected_imputation_reasons.map(&:imputation_reason_id) unless @selected_imputation_reasons.nil?)}, {class: "form-control", style: "width: 100%",  multiple: true, placeholder: "Motifs"}) %>
+    <% end %>
+  </div><!-- end nested -->
+  
+ 
+
+ </div><!-- modal body -->
+  <div class="modal-footer">
+    <%= link_to "Annuler", "#", class: "btn btn-secondary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1", data: {dismiss: "modal"} %>
+    <%= form.submit  class: "btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1",  "data-loading-text"=>"Loading...", autocomplete: "off" %>
+  </div>
+
+<% end %>

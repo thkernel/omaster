@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Reference:</strong>
+  <%= @diffusion.reference %>
+</p>
+
+<p>
+  <strong>Service:</strong>
+  <%= @diffusion.service %>
+</p>
+
+<p>
+  <strong>Recipient:</strong>
+  <%= @diffusion.recipient %>
+</p>
+
+<p>
+  <strong>Arrival mail:</strong>
+  <%= @diffusion.arrival_mail %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @diffusion.status %>
+</p>
+
+<p>
+  <strong>Broadcast by:</strong>
+  <%= @diffusion.broadcast_by %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @diffusion.user %>
+</p>
+
+<%= link_to 'Edit', edit_diffusion_path(@diffusion) %> |
+<%= link_to 'Back', diffusions_path %>

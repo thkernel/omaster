@@ -1,0 +1,11 @@
+$("ul.errors").html("");
+<% if @imputation_reason.errors.any? %>
+  <% @imputation_reason.errors.full_messages.each do |message| %>
+ 
+    $("ul.errors").append($('<div class="c-alert c-alert--danger" > ').html("<%= message.html_safe %> "));
+  <% end %>
+<% else %>
+  $(".imputation-reasons").html("<%= escape_javascript(render 'index') %>");
+  $("#imputation-reason-modal").modal("hide");
+ 
+<% end %>

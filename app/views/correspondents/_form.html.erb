@@ -1,0 +1,78 @@
+<%= form_with(model: correspondent, local: false) do |form| %>
+   <div class="modal-body">
+    <ul class="errors">
+    </ul>
+
+    <div class="row">
+
+      <div class="col-sm-6">
+
+        <div class="form-group">
+          <%= form.label :correspondent_type, "Type de correspondant" %>
+          <%= form.collection_select(:correspondent_type_id, @correspondent_types, :id, :name, {prompt: "Sélectionner"}, class: "form-control", required: true) %> 
+        </div>
+         <div class="form-group">
+          <%= form.label :organization_name, "Organisation" %>
+          <%= form.text_field :organization_name, class: "form-control", placeholder: "Organisation", required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :first_name, "Prénom" %>
+          <%= form.text_field :first_name, class: "form-control", placeholder: "Prénom", required: true %>
+        </div>
+        <div class="form-group">
+          <%= form.label :last_name, "Nom" %>
+          <%= form.text_field :last_name, class: "form-control", placeholder: "Nom", required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :address %>
+          <%= form.text_field :address, class: "form-control", placeholder: "Adresse", id: :correspondent_address %>
+        </div>
+        
+
+        
+      </div>
+
+      <div class="col-sm-6">
+      
+
+        
+
+        <div class="form-group">
+          <%= form.label :phone %>
+          <%= form.text_field :phone, class: "form-control", placeholder: "Téléphone", id: :correspondent_phone %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :city %>
+          <%= form.text_field :city, class: "form-control", placeholder: "Ville", id: :correspondent_city %>
+
+        </div>
+
+        <div class="form-group">
+          <%= form.label :country %>
+          <%= form.text_field :country, class: "form-control", placeholder: "Pays", id: :correspondent_country %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :zip_code %>
+          <%= form.text_field :zip_code, class: "form-control", placeholder: "Code postal", id: :correspondent_zip_code %>
+        </div>
+
+        
+
+      </div>
+
+
+    </div>
+ 
+
+  
+
+  </div><!-- modal body -->
+  <div class="modal-footer">
+    <%= link_to "Annuler", "#", class: "btn btn-secondary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1", data: {dismiss: "modal"} %>
+    <%= form.submit  class: "btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1",  "data-loading-text"=>"Loading...", autocomplete: "off" %>
+  </div>
+<% end %>

@@ -1,0 +1,11 @@
+$("ul.errors").html("");
+<% if @binder.errors.any? %>
+  <% @binder.errors.full_messages.each do |message| %>
+ 
+    $("ul.errors").append($('<div class="c-alert c-alert--danger" > ').html("<%= message.html_safe %> "));
+  <% end %>
+<% else %>
+  $(".binders-index").html("<%= escape_javascript(render 'index') %>");
+  $("#binder-modal").modal("hide");
+ 
+<% end %>

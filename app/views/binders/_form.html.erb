@@ -1,0 +1,29 @@
+<%= form_with(model: binder, local: false) do |form| %>
+   <div class="modal-body">
+    <ul class="errors">
+    </ul>
+
+
+  <div class="form-group">
+    <%= form.label :folder, "Dossier" %>
+    <%= form.collection_select(:folder_id, @folders, :id, :name, {prompt: "Sélectionner"}, class: "form-control", required: true) %> 
+
+  </div>
+
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control", placeholder: "#{t(:name)}", id: :binder_name, required: true %>
+  </div>
+
+
+
+  
+
+ </div><!-- modal body -->
+  <div class="modal-footer">
+    <%= link_to "Annuler", "#", class: "btn btn-secondary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1", data: {dismiss: "modal"} %>
+    <%= form.submit  class: "btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1",  "data-loading-text"=>"Loading...", autocomplete: "off" %>
+  </div>
+
+<% end %>

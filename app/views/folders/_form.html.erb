@@ -1,0 +1,18 @@
+<%= form_with(model: folder, local: false) do |form| %>
+ <div class="modal-body">
+    <ul class="errors">
+    </ul>
+
+  <div class="form-group">
+    <%= form.label t(:name) %>
+    <%= form.text_field :name, id: :folder_name, class: "form-control", placeholder: "#{t(:name)}" , required: true %>
+  </div>
+
+  
+
+ </div><!-- modal body -->
+  <div class="modal-footer">
+    <%= link_to "Annuler", "#", class: "btn btn-secondary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1", data: {dismiss: "modal"} %>
+    <%= form.submit  class: "btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1",  "data-loading-text"=>"Loading...", autocomplete: "off" %>
+  </div>
+<% end %>
