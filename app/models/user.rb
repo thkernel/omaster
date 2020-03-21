@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
 
   # Relationships
+  belongs_to :role
   has_one :profile, dependent: :destroy
 
 

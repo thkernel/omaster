@@ -11,14 +11,14 @@ class DashboardController < ApplicationController
 			#@accounts = Account.all
 			
 		#end
-
+=begin
 		@total_arrival_mails = ArrivalMail.all.count
 		@total_departure_mails = DepartureMail.all.count
 		@total_tasks = Task.all.count
 		@total_correspondents = Correspondent.all.count
 
 
-
+=end
 
 		
 	end
