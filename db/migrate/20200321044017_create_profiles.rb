@@ -8,6 +8,7 @@ class CreateProfiles < ActiveRecord::Migration[5.2]
       t.string :phone
       t.string :country
       t.string :city
+      t.references :service, foreign_key: true
       t.text :about
 
       t.timestamps
