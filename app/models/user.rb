@@ -25,7 +25,7 @@ class User < ApplicationRecord
   def generate_uid
     begin
       self.uui = SecureRandom.random_number(1_000_000_000)
-    end while User.where(slug: self.uui).exists?
+    end while User.where(uui: self.uui).exists?
   end 
 
 end
