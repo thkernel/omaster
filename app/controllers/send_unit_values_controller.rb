@@ -23,17 +23,20 @@ class SendUnitValuesController < ApplicationController
 
   # GET /send_unit_values/1/edit
   def edit
+    @customers = Customer.all
+    @agents = Agent.all
   end
 
   # POST /send_unit_values
   # POST /send_unit_values.json
   def create
-    @send_unit_value = SendUnitValue.new(send_unit_value_params)
+    @send_unit_value = current_user.send_unit_values.build(send_unit_value_params)
 
     respond_to do |format|
       if @send_unit_value.save
         format.html { redirect_to @send_unit_value, notice: 'Send unit value was successfully created.' }
         format.json { render :show, status: :created, location: @send_unit_value }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @send_unit_value.errors, status: :unprocessable_entity }
@@ -48,12 +51,18 @@ class SendUnitValuesController < ApplicationController
       if @send_unit_value.update(send_unit_value_params)
         format.html { redirect_to @send_unit_value, notice: 'Send unit value was successfully updated.' }
         format.json { render :show, status: :ok, location: @send_unit_value }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @send_unit_value.errors, status: :unprocessable_entity }
       end
     end
   end
+
+  def delete
+    @send_unit_value = SendUnitValue.find(params[:send_unit_value_id])
+  end
+
 
   # DELETE /send_unit_values/1
   # DELETE /send_unit_values/1.json

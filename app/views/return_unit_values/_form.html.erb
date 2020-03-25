@@ -1,42 +1,32 @@
-<%= form_with(model: return_unit_value, local: true) do |form| %>
-  <% if return_unit_value.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(return_unit_value.errors.count, "error") %> prohibited this return_unit_value from being saved:</h2>
+<%= form_with(model: return_unit_value, local: false) do |form| %>
+  <div class="modal-body">
+    <ul class="errors">
+    </ul>
 
-      <ul>
-      <% return_unit_value.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :reason %>
-    <%= form.text_field :reason %>
+  <div class="form-group">
+    <%= form.label :reason, "Libellé", class: "required" %>
+    <%= form.text_field :reason, class: "form-control", placeholder: "Libellé" %>
   </div>
 
-  <div class="field">
-    <%= form.label :customer_id %>
-    <%= form.text_field :customer_id %>
+  <div class="form-group">
+    <%= form.label :customer_id, "Client" , class: "required"%> <br />
+    <%= form.collection_select(:customer_id, @customers, :id, :contact_name, {prompt: "Sélectionner"}, class: "form-control", required: true) %> 
   </div>
 
-  <div class="field">
-    <%= form.label :amount %>
-    <%= form.text_field :amount %>
+  <div class="form-group">
+    <%= form.label :amount, "Montant UV" %>
+    <%= form.number_field :amount, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :agent_id %>
-    <%= form.text_field :agent_id %>
+  <div class="form-group">
+    <%= form.label :agent_id, "Agent" %><br />
+    <%= form.collection_select(:agent_id, @agents, :id, :phone, {prompt: "Sélectionner"}, class: "form-control", required: true) %> 
   </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+  </div><!-- modal body -->
+  <div class="modal-footer">
+    <%= link_to "Annuler", "#", class: "btn btn-secondary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1", data: {dismiss: "modal"} %>
+    <%= form.submit  class: "btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1",  "data-loading-text"=>"Loading...", autocomplete: "off" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

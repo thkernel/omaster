@@ -1,5 +1,7 @@
 class ReturnUnitValuesController < ApplicationController
   before_action :set_return_unit_value, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  layout "dashboard"
 
   # GET /return_unit_values
   # GET /return_unit_values.json
@@ -15,6 +17,8 @@ class ReturnUnitValuesController < ApplicationController
   # GET /return_unit_values/new
   def new
     @return_unit_value = ReturnUnitValue.new
+    @customers = Customer.all
+    @agents = Agent.all
   end
 
   # GET /return_unit_values/1/edit
@@ -24,12 +28,13 @@ class ReturnUnitValuesController < ApplicationController
   # POST /return_unit_values
   # POST /return_unit_values.json
   def create
-    @return_unit_value = ReturnUnitValue.new(return_unit_value_params)
+    @return_unit_value = current_user.return_unit_values.build(return_unit_value_params)
 
     respond_to do |format|
       if @return_unit_value.save
         format.html { redirect_to @return_unit_value, notice: 'Return unit value was successfully created.' }
         format.json { render :show, status: :created, location: @return_unit_value }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @return_unit_value.errors, status: :unprocessable_entity }
@@ -44,12 +49,18 @@ class ReturnUnitValuesController < ApplicationController
       if @return_unit_value.update(return_unit_value_params)
         format.html { redirect_to @return_unit_value, notice: 'Return unit value was successfully updated.' }
         format.json { render :show, status: :ok, location: @return_unit_value }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @return_unit_value.errors, status: :unprocessable_entity }
       end
     end
   end
+
+  def delete
+    @return_unit_value = ReturnUnitValue.find(params[:return_unit_value_id])
+  end
+
 
   # DELETE /return_unit_values/1
   # DELETE /return_unit_values/1.json

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :return_unit_values
+  resources :return_unit_values do  
+    get "delete"   
+  end
   resources :send_unit_values do  
     get "delete"   
   end
