@@ -1,0 +1,42 @@
+<%= form_with(model: return_unit_value, local: true) do |form| %>
+  <% if return_unit_value.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(return_unit_value.errors.count, "error") %> prohibited this return_unit_value from being saved:</h2>
+
+      <ul>
+      <% return_unit_value.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :reason %>
+    <%= form.text_field :reason %>
+  </div>
+
+  <div class="field">
+    <%= form.label :customer_id %>
+    <%= form.text_field :customer_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :agent_id %>
+    <%= form.text_field :agent_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

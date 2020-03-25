@@ -1,0 +1,18 @@
+<% @customer_types.each do |customer_type| %>
+      <tr>
+        <td><%= customer_type.name %></td>
+        <td><%= customer_type.description %></td>
+        <td>
+	    <div class="action-buttons">
+			<%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'),  edit_customer_type_path(customer_type), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), customer_type_delete_path(customer_type), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+      </tr>
+    <% end %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @send_unit_value.reason %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @send_unit_value.customer %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @send_unit_value.amount %>
+</p>
+
+<p>
+  <strong>Agent:</strong>
+  <%= @send_unit_value.agent %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @send_unit_value.user %>
+</p>
+
+<%= link_to 'Edit', edit_send_unit_value_path(@send_unit_value) %> |
+<%= link_to 'Back', send_unit_values_path %>

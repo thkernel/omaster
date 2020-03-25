@@ -1,0 +1,11 @@
+$("ul.errors").html("");
+<% if @sub_head_pont.errors.any? %>
+  <% @sub_head_pont.errors.full_messages.each do |message| %>
+ 
+    $("ul.errors").append($('<div class="c-alert c-alert--danger" > ').html("<%= message.html_safe %> "));
+  <% end %>
+<% else %>
+  $(".sub-head-ponts").html("<%= escape_javascript(render 'index') %>");
+  $("#sub-head-pont-modal").modal("hide");
+ 
+<% end %>

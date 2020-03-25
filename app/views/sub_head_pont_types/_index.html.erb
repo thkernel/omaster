@@ -1,0 +1,18 @@
+<% @sub_head_pont_types.each do |sub_head_pont_type| %>
+      <tr>
+        <td><%= sub_head_pont_type.name %></td>
+        <td><%= sub_head_pont_type.description %></td>
+        <td>
+					<div class="action-buttons">
+					<%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'),  edit_sub_head_pont_type_path(sub_head_pont_type), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), sub_head_pont_type_delete_path(sub_head_pont_type), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+      </tr>
+    <% end %>

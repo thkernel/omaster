@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sub_head_pont_type: one
+  number: MyString
+  description: MyText
+  status: MyString
+  user: one
+
+two:
+  sub_head_pont_type: two
+  number: MyString
+  description: MyText
+  status: MyString
+  user: two

@@ -1,0 +1,2 @@
+module HeadPontsHelper
+end

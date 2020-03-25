@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_21_044017) do
+ActiveRecord::Schema.define(version: 2020_03_24_121640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,91 @@ ActiveRecord::Schema.define(version: 2020_03_21_044017) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "agents", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "gender"
+    t.string "address"
+    t.string "phone"
+    t.string "city"
+    t.string "country"
+    t.string "email"
+    t.text "description"
+    t.string "status"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_agents_on_user_id"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "phone"
+    t.string "fax"
+    t.string "po_box"
+    t.string "city"
+    t.string "country"
+    t.string "website"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_companies_on_user_id"
+  end
+
+  create_table "customer_types", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "status"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_customer_types_on_user_id"
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.bigint "customer_type_id"
+    t.string "company_name"
+    t.string "contact_name"
+    t.string "address"
+    t.string "personal_phone"
+    t.string "work_phone"
+    t.string "fleet_number"
+    t.string "city"
+    t.string "country"
+    t.string "email"
+    t.bigint "agent_id"
+    t.bigint "user_id"
+    t.text "description"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["agent_id"], name: "index_customers_on_agent_id"
+    t.index ["customer_type_id"], name: "index_customers_on_customer_type_id"
+    t.index ["user_id"], name: "index_customers_on_user_id"
+  end
+
+  create_table "head_pont_types", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "status"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_head_pont_types_on_user_id"
+  end
+
+  create_table "head_ponts", force: :cascade do |t|
+    t.bigint "head_pont_type_id"
+    t.string "number"
+    t.string "status"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["head_pont_type_id"], name: "index_head_ponts_on_head_pont_type_id"
+    t.index ["user_id"], name: "index_head_ponts_on_user_id"
   end
 
   create_table "permission_roles", force: :cascade do |t|
@@ -71,12 +156,38 @@ ActiveRecord::Schema.define(version: 2020_03_21_044017) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "return_unit_values", force: :cascade do |t|
+    t.string "reason"
+    t.bigint "customer_id"
+    t.float "amount"
+    t.bigint "agent_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["agent_id"], name: "index_return_unit_values_on_agent_id"
+    t.index ["customer_id"], name: "index_return_unit_values_on_customer_id"
+    t.index ["user_id"], name: "index_return_unit_values_on_user_id"
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "send_unit_values", force: :cascade do |t|
+    t.string "reason"
+    t.bigint "customer_id"
+    t.float "amount"
+    t.bigint "agent_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["agent_id"], name: "index_send_unit_values_on_agent_id"
+    t.index ["customer_id"], name: "index_send_unit_values_on_customer_id"
+    t.index ["user_id"], name: "index_send_unit_values_on_user_id"
   end
 
   create_table "services", force: :cascade do |t|
@@ -86,6 +197,28 @@ ActiveRecord::Schema.define(version: 2020_03_21_044017) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "sub_head_pont_types", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "status"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sub_head_pont_types_on_user_id"
+  end
+
+  create_table "sub_head_ponts", force: :cascade do |t|
+    t.bigint "sub_head_pont_type_id"
+    t.string "number"
+    t.text "description"
+    t.string "status"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sub_head_pont_type_id"], name: "index_sub_head_ponts_on_sub_head_pont_type_id"
+    t.index ["user_id"], name: "index_sub_head_ponts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -120,9 +253,27 @@ ActiveRecord::Schema.define(version: 2020_03_21_044017) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "agents", "users"
+  add_foreign_key "companies", "users"
+  add_foreign_key "customer_types", "users"
+  add_foreign_key "customers", "agents"
+  add_foreign_key "customers", "customer_types"
+  add_foreign_key "customers", "users"
+  add_foreign_key "head_pont_types", "users"
+  add_foreign_key "head_ponts", "head_pont_types"
+  add_foreign_key "head_ponts", "users"
   add_foreign_key "permission_roles", "permissions"
   add_foreign_key "permission_roles", "roles"
   add_foreign_key "profiles", "services"
   add_foreign_key "profiles", "users"
+  add_foreign_key "return_unit_values", "agents"
+  add_foreign_key "return_unit_values", "customers"
+  add_foreign_key "return_unit_values", "users"
+  add_foreign_key "send_unit_values", "agents"
+  add_foreign_key "send_unit_values", "customers"
+  add_foreign_key "send_unit_values", "users"
+  add_foreign_key "sub_head_pont_types", "users"
+  add_foreign_key "sub_head_ponts", "sub_head_pont_types"
+  add_foreign_key "sub_head_ponts", "users"
   add_foreign_key "users", "roles"
 end

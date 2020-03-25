@@ -1,0 +1,63 @@
+<%= form_with(model: customer, local: false) do |form| %>
+  <div class="modal-body">
+    <ul class="errors">
+    </ul>
+
+
+  <div class="form-group">
+    <%= form.label :customer_type_id, "Type" %> <br />
+    <%= form.collection_select(:customer_type_id, @customer_types, :id, :name, {prompt: "Sélectionner"}, class: "form-control", required: true) %> 
+  </div>
+
+  <div class="form-group">
+    <%= form.label :company_name, "Entreprise" %>
+    <%= form.text_field :company_name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :contact_name, "Nom du contact" %>
+    <%= form.text_field :contact_name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :address, "Adresse" %>
+    <%= form.text_field :address, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :personal_phone, "N° Téléphone personnel" %>
+    <%= form.text_field :personal_phone, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :work_phone, "N° Téléphone de travail" %>
+    <%= form.text_field :work_phone, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :fleet_number, "N° Flotte" %>
+    <%= form.text_field :fleet_number, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :city , "Ville"%>
+    <%= form.text_field :city, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :email %>
+    <%= form.text_field :email, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :agent_id, "Agent de liaisaon" %>
+    <%= form.collection_select(:agent_id, @agents, :id, :phone, {prompt: "Sélectionner"}, class: "form-control", required: true) %> 
+  </div>
+
+</div><!-- modal body -->
+  <div class="modal-footer">
+    <%= link_to "Annuler", "#", class: "btn btn-secondary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1", data: {dismiss: "modal"} %>
+    <%= form.submit  class: "btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1",  "data-loading-text"=>"Loading...", autocomplete: "off" %>
+  </div>
+
+<% end %>

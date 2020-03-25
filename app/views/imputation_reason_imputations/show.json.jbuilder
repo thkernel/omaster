@@ -1,1 +1,0 @@
-json.partial! "imputation_reason_imputations/imputation_reason_imputation", imputation_reason_imputation: @imputation_reason_imputation

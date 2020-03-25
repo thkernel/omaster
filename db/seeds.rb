@@ -86,3 +86,44 @@ unless Profile.all.present?
     ])
 
 end
+
+unless CustomerType.all.present?
+    customer_types = CustomerType.create(
+        [
+            {name: "RS Fractioné" },
+            {name: "RS"},
+            {name: "RNS"},
+            {user_id: users.first.id}
+
+
+        ])
+else
+    customer_types = CustomerType.all
+end
+
+
+unless HeadPontType.all.present?
+    head_pont_types = HeadPontType.create(
+        [
+            {name: "RS" },
+            {name: "RNS"},
+            {user_id: users.first.id}
+
+        ])
+else
+    head_pont_types = HeadPontType.all
+end
+
+
+unless SubHeadPontType.all.present?
+    sub_head_pont_types = SubHeadPontType.create(
+        [
+            {name: "RS" },
+            {name: "RNS"},
+            {user_id: users.first.id}
+
+        ])
+else
+    sub_head_pont_types = SubHeadPontType.all
+end
+

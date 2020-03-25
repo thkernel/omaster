@@ -10,6 +10,14 @@ class User < ApplicationRecord
   # Relationships
   belongs_to :role
   has_one :profile, dependent: :destroy
+  has_many :customer_types, dependent: :destroy
+  has_many :head_pont_types, dependent: :destroy
+  has_many :sub_head_pont_types, dependent: :destroy
+  has_many :head_ponts, dependent: :destroy
+  has_many :sub_head_ponts, dependent: :destroy
+  has_many :agents, dependent: :destroy
+  has_many :customers, dependent: :destroy
+  has_many :send_unit_values, dependent: :destroy
 
 
   # Add nested attributes for profile.

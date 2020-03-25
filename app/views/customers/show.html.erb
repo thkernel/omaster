@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Customer type:</strong>
+  <%= @customer.customer_type %>
+</p>
+
+<p>
+  <strong>Company name:</strong>
+  <%= @customer.company_name %>
+</p>
+
+<p>
+  <strong>Contact name:</strong>
+  <%= @customer.contact_name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @customer.address %>
+</p>
+
+<p>
+  <strong>Personal phone:</strong>
+  <%= @customer.personal_phone %>
+</p>
+
+<p>
+  <strong>Work phone:</strong>
+  <%= @customer.work_phone %>
+</p>
+
+<p>
+  <strong>Fleet number:</strong>
+  <%= @customer.fleet_number %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @customer.city %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @customer.country %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @customer.email %>
+</p>
+
+<p>
+  <strong>Agent:</strong>
+  <%= @customer.agent %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @customer.user %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @customer.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @customer.status %>
+</p>
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>

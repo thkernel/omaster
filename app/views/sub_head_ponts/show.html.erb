@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sub head pont type:</strong>
+  <%= @sub_head_pont.sub_head_pont_type %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @sub_head_pont.number %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @sub_head_pont.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @sub_head_pont.status %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @sub_head_pont.user %>
+</p>
+
+<%= link_to 'Edit', edit_sub_head_pont_path(@sub_head_pont) %> |
+<%= link_to 'Back', sub_head_ponts_path %>

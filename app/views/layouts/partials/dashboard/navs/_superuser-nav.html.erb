@@ -15,17 +15,17 @@
           <ul class="br-menu-sub">
             
             <li class="sub-item">
-                <%= link_to  "Envoi UV", root_path, class: "sub-link" %>
+                <%= link_to  "Envoi UV", send_unit_values_path, class: "sub-link" %>
             </li>
 
             <li class="sub-item">
-                <%= link_to  "Retour UV", root_path, class: "sub-link" %>
+                <%= link_to  "Retour UV", return_unit_values_path, class: "sub-link" %>
             </li>
 
           
 
             <li class="sub-item">
-                <%= link_to  "Recherche", root_path, class: "sub-link" %>
+                <%= link_to  "Versement à la caisse", root_path, class: "sub-link" %>
             </li>
 
              
@@ -60,8 +60,36 @@
             </li>
 
             
+            <li class="sub-item">
+                <%= link_to  "Type client", customer_types_path, class: "sub-link" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Type tête de pont", head_pont_types_path, class: "sub-link" %>
+            </li>
+
              
+            <li class="sub-item">
+                <%= link_to  "Types sous tête pont", sub_head_pont_types_path, class: "sub-link" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Têtes de pont", head_ponts_path, class: "sub-link" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Sous têtes de pont", sub_head_ponts_path, class: "sub-link" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Agents", agents_path, class: "sub-link" %>
+            </li>
+
            
+            <li class="sub-item">
+                <%= link_to  "Clients", customers_path, class: "sub-link" %>
+            </li>
+
 
            
 

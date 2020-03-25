@@ -1,8 +1,42 @@
 Rails.application.routes.draw do
-  resources :services
-  resources :permission_roles
-  resources :permissions
-  resources :roles
+  resources :return_unit_values
+  resources :send_unit_values do  
+    get "delete"   
+  end
+  resources :customers do  
+    get "delete"   
+  end
+  resources :customer_types do  
+    get "delete"   
+  end
+  resources :agents do  
+    get "delete"   
+  end
+  resources :sub_head_ponts do  
+    get "delete"   
+  end
+  resources :head_ponts do  
+    get "delete"   
+  end
+  resources :sub_head_pont_types do  
+    get "delete"   
+  end
+  resources :head_pont_types do  
+    get "delete"   
+  end
+  resources :companies
+  resources :services do  
+    get "delete"   
+  end
+  resources :permission_roles do  
+    get "delete"   
+  end
+  resources :permissions do  
+    get "delete"   
+  end
+  resources :roles do  
+    get "delete"   
+  end
   resources :profiles
   #devise_for :users
 
@@ -67,3 +101,4 @@ Rails.application.routes.draw do
   
 
 end
+
