@@ -1,0 +1,21 @@
+<% @remote_nafamas.each do |remote_nafama| %>
+      <tr>
+        <td><%= customer(remote_nafama.customer_id).fleet_number %></td>
+        <td><%= remote_nafama.amount %></td>
+        
+       
+        <td>
+                    <div class="action-buttons">
+                    <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'),  edit_remote_nafama_path(remote_nafama), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), remote_nafama_delete_path(remote_nafama), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+
+      </tr>
+    <% end %>

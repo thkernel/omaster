@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @remote_nafama.amount %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @remote_nafama.customer %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @remote_nafama.status %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @remote_nafama.user %>
+</p>
+
+<%= link_to 'Edit', edit_remote_nafama_path(@remote_nafama) %> |
+<%= link_to 'Back', remote_nafamas_path %>

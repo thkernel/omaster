@@ -1,6 +1,7 @@
 class CreateReturnUnitValues < ActiveRecord::Migration[5.2]
   def change
     create_table :return_unit_values do |t|
+      t.string :uid
       t.string :reason
       t.references :customer, foreign_key: true
       t.float :amount

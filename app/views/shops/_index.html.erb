@@ -1,0 +1,20 @@
+<% @shops.each do |shop| %>
+  <tr>
+    <td><%= locality(shop.locality_id).name if shop.locality_id %></td>
+    <td><%= shop.name %></td>
+    <td><%= shop.phone_number %></td>
+   
+   <td>
+                    <div class="action-buttons">
+                    <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'),  edit_shop_path(shop), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), shop_delete_path(shop), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+  </tr>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_24_121640) do
+ActiveRecord::Schema.define(version: 2020_04_06_062657) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,26 @@ ActiveRecord::Schema.define(version: 2020_03_24_121640) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_agents_on_user_id"
+  end
+
+  create_table "checkouts", force: :cascade do |t|
+    t.string "uid"
+    t.string "name"
+    t.float "minimum_balance"
+    t.float "maximum_balance"
+    t.string "current_balance"
+    t.string "status"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_checkouts_on_user_id"
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "companies", force: :cascade do |t|
@@ -121,6 +141,40 @@ ActiveRecord::Schema.define(version: 2020_03_24_121640) do
     t.index ["user_id"], name: "index_head_ponts_on_user_id"
   end
 
+  create_table "localities", force: :cascade do |t|
+    t.bigint "city_id"
+    t.string "name"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_localities_on_city_id"
+  end
+
+  create_table "payment_types", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.string "uid"
+    t.bigint "send_unit_value_id"
+    t.bigint "payment_type_id"
+    t.bigint "checkout_id"
+    t.float "amount"
+    t.integer "shop_id"
+    t.string "status"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["checkout_id"], name: "index_payments_on_checkout_id"
+    t.index ["payment_type_id"], name: "index_payments_on_payment_type_id"
+    t.index ["send_unit_value_id"], name: "index_payments_on_send_unit_value_id"
+    t.index ["user_id"], name: "index_payments_on_user_id"
+  end
+
   create_table "permission_roles", force: :cascade do |t|
     t.bigint "role_id"
     t.bigint "permission_id"
@@ -156,7 +210,32 @@ ActiveRecord::Schema.define(version: 2020_03_24_121640) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "remote_nafamas", force: :cascade do |t|
+    t.string "uid"
+    t.float "amount"
+    t.bigint "customer_id"
+    t.string "status"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_remote_nafamas_on_customer_id"
+    t.index ["user_id"], name: "index_remote_nafamas_on_user_id"
+  end
+
+  create_table "remote_unit_values", force: :cascade do |t|
+    t.string "uid"
+    t.string "sender"
+    t.string "receiver"
+    t.float "amount"
+    t.string "status"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_remote_unit_values_on_user_id"
+  end
+
   create_table "return_unit_values", force: :cascade do |t|
+    t.string "uid"
     t.string "reason"
     t.bigint "customer_id"
     t.float "amount"
@@ -178,6 +257,7 @@ ActiveRecord::Schema.define(version: 2020_03_24_121640) do
   end
 
   create_table "send_unit_values", force: :cascade do |t|
+    t.string "uid"
     t.string "reason"
     t.bigint "customer_id"
     t.float "amount"
@@ -197,6 +277,18 @@ ActiveRecord::Schema.define(version: 2020_03_24_121640) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "shops", force: :cascade do |t|
+    t.bigint "locality_id"
+    t.string "name"
+    t.string "phone_number"
+    t.string "status"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["locality_id"], name: "index_shops_on_locality_id"
+    t.index ["user_id"], name: "index_shops_on_user_id"
   end
 
   create_table "sub_head_pont_types", force: :cascade do |t|
@@ -254,6 +346,7 @@ ActiveRecord::Schema.define(version: 2020_03_24_121640) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "agents", "users"
+  add_foreign_key "checkouts", "users"
   add_foreign_key "companies", "users"
   add_foreign_key "customer_types", "users"
   add_foreign_key "customers", "agents"
@@ -262,16 +355,26 @@ ActiveRecord::Schema.define(version: 2020_03_24_121640) do
   add_foreign_key "head_pont_types", "users"
   add_foreign_key "head_ponts", "head_pont_types"
   add_foreign_key "head_ponts", "users"
+  add_foreign_key "localities", "cities"
+  add_foreign_key "payments", "checkouts"
+  add_foreign_key "payments", "payment_types"
+  add_foreign_key "payments", "send_unit_values"
+  add_foreign_key "payments", "users"
   add_foreign_key "permission_roles", "permissions"
   add_foreign_key "permission_roles", "roles"
   add_foreign_key "profiles", "services"
   add_foreign_key "profiles", "users"
+  add_foreign_key "remote_nafamas", "customers"
+  add_foreign_key "remote_nafamas", "users"
+  add_foreign_key "remote_unit_values", "users"
   add_foreign_key "return_unit_values", "agents"
   add_foreign_key "return_unit_values", "customers"
   add_foreign_key "return_unit_values", "users"
   add_foreign_key "send_unit_values", "agents"
   add_foreign_key "send_unit_values", "customers"
   add_foreign_key "send_unit_values", "users"
+  add_foreign_key "shops", "localities"
+  add_foreign_key "shops", "users"
   add_foreign_key "sub_head_pont_types", "users"
   add_foreign_key "sub_head_ponts", "sub_head_pont_types"
   add_foreign_key "sub_head_ponts", "users"

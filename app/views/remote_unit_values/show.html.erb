@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @remote_uv.amount %>
+</p>
+
+<p>
+  <strong>Shop:</strong>
+  <%= @remote_uv.shop %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @remote_uv.status %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @remote_uv.user %>
+</p>
+
+<%= link_to 'Edit', edit_remote_uv_path(@remote_uv) %> |
+<%= link_to 'Back', remote_uvs_path %>

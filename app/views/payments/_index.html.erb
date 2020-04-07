@@ -1,0 +1,23 @@
+<% @payments.each do |payment| %>
+      <tr>
+         <td><%= payment.payment_type %></td>
+        <td><%= payment.send_unit_value %></td>
+        <td><%= checkout(payment.checkout_id).name %></td>
+       
+        <td><%= payment.amount %></td>
+        
+        <td>
+        <div class="action-buttons">
+            <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'),  edit_payment_path(payment), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), payment_delete_path(payment), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+
+      </tr>
+    <% end %>

@@ -1,8 +1,6 @@
 module ApplicationHelper
 	# Include all helpers
-	include CorrespondentsHelper
-	include BindersHelper
-	include RegistersHelper
+	
 
     def resource_name
 	    :user

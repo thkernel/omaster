@@ -1,0 +1,22 @@
+<% @remote_unit_values.each do |remote_uv| %>
+  <tr>
+   
+    <td><%= remote_uv.sender %></td>
+    <td><%= remote_uv.receiver %></td>
+     <td><%= remote_uv.amount %></td>
+    
+    <td>
+                    <div class="action-buttons">
+                    <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'),  edit_remote_unit_value_path(remote_uv), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), remote_unit_value_delete_path(remote_uv), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+
+  </tr>
+<% end %>

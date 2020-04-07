@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: cities
+#
+#  id         :bigint           not null, primary key
+#  name       :string
+#  status     :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  status: MyString
+
+two:
+  name: MyString
+  status: MyString

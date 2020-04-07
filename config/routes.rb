@@ -1,4 +1,28 @@
 Rails.application.routes.draw do
+  resources :checkouts do  
+    get "delete"   
+  end
+  resources :payments do  
+    get "delete"   
+  end
+  resources :remote_nafamas do  
+    get "delete"   
+  end
+  resources :remote_unit_values do  
+    get "delete"   
+  end
+  resources :shops do  
+    get "delete"   
+  end
+  resources :localities do  
+    get "delete"   
+  end
+  resources :cities do  
+    get "delete"   
+  end
+  resources :payment_types do  
+    get "delete"   
+  end
   resources :return_unit_values do  
     get "delete"   
   end

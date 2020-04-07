@@ -1,0 +1,11 @@
+$("ul.errors").html("");
+<% if @remote_nafama.errors.any? %>
+  <% @remote_nafama.errors.full_messages.each do |message| %>
+ 
+    $("ul.errors").append($('<div class="c-alert c-alert--danger" > ').html("<%= message.html_safe %> "));
+  <% end %>
+<% else %>
+  $(".remote-nafamas").html("<%= escape_javascript(render 'index') %>");
+  $("#remote-nafama-modal").modal("hide");
+ 
+<% end %>

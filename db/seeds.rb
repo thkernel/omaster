@@ -90,10 +90,10 @@ end
 unless CustomerType.all.present?
     customer_types = CustomerType.create(
         [
-            {name: "RS Fractioné" },
-            {name: "RS"},
-            {name: "RNS"},
-            {user_id: users.first.id}
+            {name: "RS Fractioné", user_id: users.first.id },
+            {name: "RS", user_id: users.first.id},
+            {name: "RNS", user_id: users.first.id}
+            
 
 
         ])
@@ -105,9 +105,9 @@ end
 unless HeadPontType.all.present?
     head_pont_types = HeadPontType.create(
         [
-            {name: "RS" },
-            {name: "RNS"},
-            {user_id: users.first.id}
+            {name: "RS", user_id: users.first.id },
+            {name: "RNS", user_id: users.first.id},
+           
 
         ])
 else
@@ -118,12 +118,57 @@ end
 unless SubHeadPontType.all.present?
     sub_head_pont_types = SubHeadPontType.create(
         [
-            {name: "RS" },
-            {name: "RNS"},
-            {user_id: users.first.id}
+            {name: "RS" , user_id: users.first.id},
+            {name: "RNS", user_id: users.first.id},
+            
 
         ])
 else
     sub_head_pont_types = SubHeadPontType.all
+end
+
+unless PaymentType.all.present?
+    payment_types = PaymentType.create(
+        [
+            {name: "Envoi UV" },
+            {name: "Verssement boutique"},
+            
+
+        ])
+else
+    payment_types = PaymentType.all
+end
+
+
+unless City.all.present?
+    city = City.create(
+        [
+            {name: "BAMAKO"},
+            {name: "KAYES" },
+            {name: "KOULIKORO"},
+            {name: "SIKASSO"},
+            {name: "SEGOU"},
+            {name: "MOPTI"},
+            {name: "GAO"},
+            {name: "TOMBOUCTOU"},
+            {name: "KIDAL"},
+            {name: "MENAKA"},
+            
+
+        ])
+else
+    cities = City.all
+end
+
+unless Locality.all.present?
+    localities = Locality.create(
+        [
+            {city_id: City.find_by(name: "BAMAKO").id},
+            {name: "BAMAKO"},
+            
+
+        ])
+else
+    localities = Locality.all
 end
 

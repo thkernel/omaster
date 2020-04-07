@@ -1,0 +1,11 @@
+$("ul.errors").html("");
+<% if @remote_unit_value.errors.any? %>
+  <% @remote_unit_value.errors.full_messages.each do |message| %>
+ 
+    $("ul.errors").append($('<div class="c-alert c-alert--danger" > ').html("<%= message.html_safe %> "));
+  <% end %>
+<% else %>
+  $(".remote-uvs").html("<%= escape_javascript(render 'index') %>");
+  $("#remote-uv-modal").modal("hide");
+ 
+<% end %>

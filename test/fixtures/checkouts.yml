@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: checkouts
+#
+#  id              :bigint           not null, primary key
+#  name            :string
+#  minimumbalance  :float
+#  maximum_balance :float
+#  current_balance :string
+#  status          :string
+#  user_id         :bigint
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  minimumbalance: 1.5
+  maximum_balance: 1.5
+  current_balance: MyString
+  status: MyString
+  user: one
+
+two:
+  name: MyString
+  minimumbalance: 1.5
+  maximum_balance: 1.5
+  current_balance: MyString
+  status: MyString
+  user: two

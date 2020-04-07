@@ -1,0 +1,21 @@
+<% @payment_types.each do |payment_type| %>
+      <tr>
+        <td><%= payment_type.name %></td>
+        
+
+       <td>
+	    <div class="action-buttons">
+			<%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'),  edit_payment_type_path(payment_type), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), payment_type_delete_path(payment_type), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+
+
+      </tr>
+    <% end %>

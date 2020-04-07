@@ -1,0 +1,23 @@
+<% @checkouts.each do |checkout| %>
+      <tr>
+        <td><%= checkout.name %></td>
+        <td><%= checkout.minimum_balance %></td>
+        <td><%= checkout.maximum_balance %></td>
+        <td><%= checkout.current_balance %></td>
+        
+        <td>
+        <div class="action-buttons">
+            <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'),  edit_checkout_path(checkout), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), checkout_delete_path(checkout), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+
+
+      </tr>
+    <% end %>
