@@ -3,6 +3,7 @@
 # Table name: payments
 #
 #  id                 :bigint           not null, primary key
+#  uid                :string
 #  send_unit_value_id :bigint
 #  payment_type_id    :bigint
 #  checkout_id        :bigint

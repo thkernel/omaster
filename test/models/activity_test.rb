@@ -1,22 +1,23 @@
 # == Schema Information
 #
-# Table name: checkouts
+# Table name: activities
 #
 #  id              :bigint           not null, primary key
-#  uid             :string
-#  name            :string
-#  minimum_balance :float
-#  maximum_balance :float
-#  current_balance :string
+#  network_nature  :string
+#  designation     :string
+#  customer_number :string
+#  pont_head       :string
+#  debit           :float
+#  credit          :float
 #  status          :string
-#  user_id         :bigint
+#  importation_id  :bigint
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
 
 require 'test_helper'
 
-class CheckoutTest < ActiveSupport::TestCase
+class ActivityTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

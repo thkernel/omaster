@@ -3,8 +3,9 @@
 # Table name: checkouts
 #
 #  id              :bigint           not null, primary key
+#  uid             :string
 #  name            :string
-#  minimumbalance  :float
+#  minimum_balance :float
 #  maximum_balance :float
 #  current_balance :string
 #  status          :string

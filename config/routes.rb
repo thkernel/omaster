@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :importations
+  resources :activities do 
+    get "delete"
+  end
   resources :checkouts do  
     get "delete"   
   end
@@ -67,6 +71,11 @@ Rails.application.routes.draw do
   #devise_for :users
 
   get "/dashboard" => "dashboard#index" , as: :dashboard
+
+  get "/importation" => "importations#importation_modal", as: :importation_modal
+  post "importation" => "importations#importation", as: :post_importation
+
+  get "/importation/:uid" => "activities#index", as: :activity_index
 
 
   get "/users"     => "custom_users#index", as: :all_users 

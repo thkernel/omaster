@@ -1,0 +1,8 @@
+<% @importations.each do |importation| %>
+      <tr>
+        <td><%= importation.created_at.strftime("%d/%m/%Y") %></td>
+        <td><%= link_to "#{importation.uid}", activity_index_path(uid: importation.uid) %></td>
+        <td><%= importation.file_name %></td>
+        
+      </tr>
+    <% end %>

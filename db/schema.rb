@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_06_062657) do
+ActiveRecord::Schema.define(version: 2020_04_07_140013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,20 @@ ActiveRecord::Schema.define(version: 2020_04_06_062657) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "activities", force: :cascade do |t|
+    t.string "network_nature"
+    t.string "designation"
+    t.string "customer_number"
+    t.string "pont_head"
+    t.float "debit"
+    t.float "credit"
+    t.string "status"
+    t.bigint "importation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["importation_id"], name: "index_activities_on_importation_id"
   end
 
   create_table "agents", force: :cascade do |t|
@@ -139,6 +153,16 @@ ActiveRecord::Schema.define(version: 2020_04_06_062657) do
     t.datetime "updated_at", null: false
     t.index ["head_pont_type_id"], name: "index_head_ponts_on_head_pont_type_id"
     t.index ["user_id"], name: "index_head_ponts_on_user_id"
+  end
+
+  create_table "importations", force: :cascade do |t|
+    t.string "uid"
+    t.string "file_name"
+    t.bigint "user_id"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_importations_on_user_id"
   end
 
   create_table "localities", force: :cascade do |t|
@@ -345,6 +369,7 @@ ActiveRecord::Schema.define(version: 2020_04_06_062657) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "activities", "importations"
   add_foreign_key "agents", "users"
   add_foreign_key "checkouts", "users"
   add_foreign_key "companies", "users"
@@ -355,6 +380,7 @@ ActiveRecord::Schema.define(version: 2020_04_06_062657) do
   add_foreign_key "head_pont_types", "users"
   add_foreign_key "head_ponts", "head_pont_types"
   add_foreign_key "head_ponts", "users"
+  add_foreign_key "importations", "users"
   add_foreign_key "localities", "cities"
   add_foreign_key "payments", "checkouts"
   add_foreign_key "payments", "payment_types"

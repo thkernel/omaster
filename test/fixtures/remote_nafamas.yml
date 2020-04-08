@@ -3,6 +3,7 @@
 # Table name: remote_nafamas
 #
 #  id          :bigint           not null, primary key
+#  uid         :string
 #  amount      :float
 #  customer_id :bigint
 #  status      :string

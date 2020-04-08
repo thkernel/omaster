@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Network nature:</strong>
+  <%= @activity.network_nature %>
+</p>
+
+<p>
+  <strong>Designation:</strong>
+  <%= @activity.designation %>
+</p>
+
+<p>
+  <strong>Customer number:</strong>
+  <%= @activity.customer_number %>
+</p>
+
+<p>
+  <strong>Pont head:</strong>
+  <%= @activity.pont_head %>
+</p>
+
+<p>
+  <strong>Debit:</strong>
+  <%= @activity.debit %>
+</p>
+
+<p>
+  <strong>Credit:</strong>
+  <%= @activity.credit %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @activity.status %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @activity.user %>
+</p>
+
+<%= link_to 'Edit', edit_activity_path(@activity) %> |
+<%= link_to 'Back', activities_path %>

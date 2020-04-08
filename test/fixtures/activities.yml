@@ -1,0 +1,38 @@
+# == Schema Information
+#
+# Table name: activities
+#
+#  id              :bigint           not null, primary key
+#  network_nature  :string
+#  designation     :string
+#  customer_number :string
+#  pont_head       :string
+#  debit           :float
+#  credit          :float
+#  status          :string
+#  importation_id  :bigint
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  network_nature: MyString
+  designation: MyString
+  customer_number: MyString
+  pont_head: MyString
+  debit: 1.5
+  credit: 1.5
+  status: MyString
+  user: one
+
+two:
+  network_nature: MyString
+  designation: MyString
+  customer_number: MyString
+  pont_head: MyString
+  debit: 1.5
+  credit: 1.5
+  status: MyString
+  user: two

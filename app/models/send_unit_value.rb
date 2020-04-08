@@ -3,6 +3,7 @@
 # Table name: send_unit_values
 #
 #  id          :bigint           not null, primary key
+#  uid         :string
 #  reason      :string
 #  customer_id :bigint
 #  amount      :float

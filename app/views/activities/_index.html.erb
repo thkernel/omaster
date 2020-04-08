@@ -1,0 +1,24 @@
+<% @activities.each do |activity| %>
+  <tr>
+    <td><%= activity.network_nature %></td>
+    <td><%= activity.designation %></td>
+    <td><%= activity.customer_number %></td>
+    <td><%= activity.pont_head %></td>
+    <td><%= activity.debit %></td>
+    <td><%= activity.credit %></td>
+   
+    <td>
+        <div class="action-buttons">
+            <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'),  edit_activity_path(activity), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), activity_delete_path(activity), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+
+  </tr>
+<% end %>
