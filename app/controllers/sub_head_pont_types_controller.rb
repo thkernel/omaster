@@ -30,6 +30,7 @@ class SubHeadPontTypesController < ApplicationController
 
     respond_to do |format|
       if @sub_head_pont_type.save
+        @sub_head_pont_types = SubHeadPontType.all
         format.html { redirect_to @sub_head_pont_type, notice: 'Sub head pont type was successfully created.' }
         format.json { render :show, status: :created, location: @sub_head_pont_type }
         format.js
@@ -45,8 +46,10 @@ class SubHeadPontTypesController < ApplicationController
   def update
     respond_to do |format|
       if @sub_head_pont_type.update(sub_head_pont_type_params)
+        @sub_head_pont_types = SubHeadPontType.all
         format.html { redirect_to @sub_head_pont_type, notice: 'Sub head pont type was successfully updated.' }
         format.json { render :show, status: :ok, location: @sub_head_pont_type }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @sub_head_pont_type.errors, status: :unprocessable_entity }

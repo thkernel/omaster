@@ -30,6 +30,7 @@ class CustomerTypesController < ApplicationController
 
     respond_to do |format|
       if @customer_type.save
+        @customer_types = CustomerType.all
         format.html { redirect_to @customer_type, notice: 'Customer type was successfully created.' }
         format.json { render :show, status: :created, location: @customer_type }
         format.js
@@ -45,6 +46,7 @@ class CustomerTypesController < ApplicationController
   def update
     respond_to do |format|
       if @customer_type.update(customer_type_params)
+        @customer_types = CustomerType.all
         format.html { redirect_to @customer_type, notice: 'Customer type was successfully updated.' }
         format.json { render :show, status: :ok, location: @customer_type }
         format.js

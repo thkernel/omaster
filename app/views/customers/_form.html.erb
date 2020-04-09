@@ -29,10 +29,7 @@
     <%= form.text_field :personal_phone, class: "form-control" %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :work_phone, "N° Téléphone de travail" %>
-    <%= form.text_field :work_phone, class: "form-control" %>
-  </div>
+ 
 
   <div class="form-group">
     <%= form.label :fleet_number, "N° Flotte" %>
@@ -50,8 +47,8 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :agent_id, "Agent de liaisaon" %>
-    <%= form.collection_select(:agent_id, @agents, :id, :phone, {prompt: "Sélectionner"}, class: "form-control", required: true) %> 
+    <%= form.label :agent_id, "Agent de liaisaon" %> <br />
+    <%= form.collection_select(:agent_id, @agents, :id, :full_name_with_phone, {prompt: "Sélectionner"}, class: "form-control", required: true) %> 
   </div>
 
 </div><!-- modal body -->

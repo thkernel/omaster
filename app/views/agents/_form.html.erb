@@ -22,8 +22,8 @@
     <div class="col-sm-4">
 
       <div class="form-group">
-        <%= form.label :gender, "Sexe" %>
-        <%= form.text_field :gender, class: "form-control" %>
+        <%= form.label :gender, "Sexe" %> <br />
+        <%= form.select :gender, SEXE, {prompt: "Sélectionner"}, class: "form-control", required: true %>
       </div>
     </div>
   </div>
@@ -47,10 +47,7 @@
     <%= form.text_field :city, class: "form-control" %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :country, "Pays" %>
-    <%= form.text_field :country, class: "form-control" %>
-  </div>
+  
 
   <div class="form-group">
     <%= form.label :email %>

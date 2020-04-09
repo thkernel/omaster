@@ -3,6 +3,11 @@
     <ul class="errors">
     </ul>
 
+<div class="form-group">
+    <%= form.label :checkout__id, "Réf. caisse", class: "required" %> <br />
+    <%= form.collection_select(:checkout_id, @checkouts, :id, :name, {prompt: "Sélectionner"}, class: "form-control", required: true) %> 
+  </div>
+
  <div class="form-group">
     <%= form.label :payment_type_id, "Type de paiement", class: "required" %> <br />
     <%= form.collection_select(:payment_type_id, @payment_types, :id, :name, {prompt: "Sélectionner"}, class: "form-control", required: true) %> 

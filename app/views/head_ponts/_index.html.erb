@@ -1,6 +1,6 @@
 <% @head_ponts.each do |head_pont| %>
       <tr>
-        <td><%= head_pont.head_pont_type %></td>
+        <td><%= head_pont_type(head_pont.head_pont_type_id).name %></td>
         <td><%= head_pont.number %></td>
         <td>
 	    <div class="action-buttons">

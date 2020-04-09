@@ -1,6 +1,6 @@
 <% @sub_head_ponts.each do |sub_head_pont| %>
       <tr>
-        <td><%= sub_head_pont.sub_head_pont_type %></td>
+        <td><%= sub_head_pont_type(sub_head_pont.sub_head_pont_type_id).name %></td>
         <td><%= sub_head_pont.number %></td>
         <td>
 					<div class="action-buttons">

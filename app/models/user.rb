@@ -48,9 +48,10 @@ class User < ApplicationRecord
   has_many :agents, dependent: :destroy
   has_many :customers, dependent: :destroy
   has_many :send_unit_values, dependent: :destroy
+  has_many :return_unit_values, dependent: :destroy
   has_many :shops, dependent: :destroy
   has_many :remote_unit_values, dependent: :destroy
-  has_many :remote_nafama, dependent: :destroy
+  has_many :remote_nafamas, dependent: :destroy
   has_many :checkouts, dependent: :destroy
   has_many :payments, dependent: :destroy
 

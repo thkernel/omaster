@@ -1,9 +1,9 @@
 <% @return_unit_values.each do |return_unit_value| %>
       <tr>
         <td><%= return_unit_value.reason %></td>
-        <td><%= return_unit_value.customer %></td>
+        <td><%= customer(return_unit_value.customer_id).contact_name %></td>
         <td><%= return_unit_value.amount %></td>
-        <td><%= return_unit_value.agent %></td>
+       
         <td>
 					<div class="action-buttons">
 					<%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>

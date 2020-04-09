@@ -1,9 +1,9 @@
 <% @send_unit_values.each do |send_unit_value| %>
       <tr>
         <td><%= send_unit_value.reason %></td>
-        <td><%= send_unit_value.customer %></td>
+        <td><%= customer(send_unit_value.customer_id).contact_name %></td>
         <td><%= send_unit_value.amount %></td>
-        <td><%= send_unit_value.agent %></td>
+       
         <td>
 					<div class="action-buttons">
 					<%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>

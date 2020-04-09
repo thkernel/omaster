@@ -23,6 +23,8 @@ class CustomersController < ApplicationController
 
   # GET /customers/1/edit
   def edit
+    @agents = Agent.all 
+    @customer_types = CustomerType.all
   end
 
   # POST /customers
@@ -32,6 +34,7 @@ class CustomersController < ApplicationController
 
     respond_to do |format|
       if @customer.save
+        @customers = Customer.all
         format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
         format.json { render :show, status: :created, location: @customer }
         format.js
@@ -47,6 +50,7 @@ class CustomersController < ApplicationController
   def update
     respond_to do |format|
       if @customer.update(customer_params)
+        @customers = Customer.all
         format.html { redirect_to @customer, notice: 'Customer was successfully updated.' }
         format.json { render :show, status: :ok, location: @customer }
         format.js

@@ -34,6 +34,10 @@ class SendUnitValuesController < ApplicationController
 
     respond_to do |format|
       if @send_unit_value.save
+
+        @send_unit_values = SendUnitValue.all
+
+
         format.html { redirect_to @send_unit_value, notice: 'Send unit value was successfully created.' }
         format.json { render :show, status: :created, location: @send_unit_value }
         format.js
@@ -49,6 +53,10 @@ class SendUnitValuesController < ApplicationController
   def update
     respond_to do |format|
       if @send_unit_value.update(send_unit_value_params)
+
+        @send_unit_values = SendUnitValue.all
+
+        
         format.html { redirect_to @send_unit_value, notice: 'Send unit value was successfully updated.' }
         format.json { render :show, status: :ok, location: @send_unit_value }
         format.js
@@ -82,6 +90,6 @@ class SendUnitValuesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def send_unit_value_params
-      params.require(:send_unit_value).permit(:reason, :customer_id, :amount, :agent_id, :user_id)
+      params.require(:send_unit_value).permit(:reason, :customer_id, :amount)
     end
 end

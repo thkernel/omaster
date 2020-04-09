@@ -22,6 +22,7 @@ class SubHeadPontsController < ApplicationController
 
   # GET /sub_head_ponts/1/edit
   def edit
+    @sub_head_pont_types = SubHeadPontType.all
   end
 
   # POST /sub_head_ponts
@@ -31,6 +32,8 @@ class SubHeadPontsController < ApplicationController
 
     respond_to do |format|
       if @sub_head_pont.save
+        @sub_head_ponts = SubHeadPont.all
+
         format.html { redirect_to @sub_head_pont, notice: 'Sub head pont was successfully created.' }
         format.json { render :show, status: :created, location: @sub_head_pont }
         format.js
@@ -46,6 +49,8 @@ class SubHeadPontsController < ApplicationController
   def update
     respond_to do |format|
       if @sub_head_pont.update(sub_head_pont_params)
+        @sub_head_ponts = SubHeadPont.all
+
         format.html { redirect_to @sub_head_pont, notice: 'Sub head pont was successfully updated.' }
         format.json { render :show, status: :ok, location: @sub_head_pont }
         format.js

@@ -1,7 +1,7 @@
 <% @payments.each do |payment| %>
       <tr>
-         <td><%= payment.payment_type %></td>
-        <td><%= payment.send_unit_value %></td>
+         <td><%= payment_type(payment.payment_type_id).name %></td>
+        <td><%= payment.send_unit_value_id %></td>
         <td><%= checkout(payment.checkout_id).name %></td>
        
         <td><%= payment.amount %></td>

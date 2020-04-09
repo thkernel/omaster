@@ -1,14 +1,12 @@
 <% @customers.each do |customer| %>
       <tr>
-        <td><%= customer.customer_type %></td>
+        <td><%= customer_type(customer.customer_type_id).name %></td>
         <td><%= customer.company_name %></td>
         <td><%= customer.contact_name %></td>
-        <td><%= customer.address %></td>
         <td><%= customer.personal_phone %></td>
-        <td><%= customer.work_phone %></td>
         <td><%= customer.fleet_number %></td>
         <td><%= customer.city %></td>
-        <td><%= customer.email %></td>
+        
         <td>
 	    <div class="action-buttons">
 			<%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>

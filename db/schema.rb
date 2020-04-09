@@ -263,11 +263,9 @@ ActiveRecord::Schema.define(version: 2020_04_07_140013) do
     t.string "reason"
     t.bigint "customer_id"
     t.float "amount"
-    t.bigint "agent_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["agent_id"], name: "index_return_unit_values_on_agent_id"
     t.index ["customer_id"], name: "index_return_unit_values_on_customer_id"
     t.index ["user_id"], name: "index_return_unit_values_on_user_id"
   end
@@ -285,11 +283,9 @@ ActiveRecord::Schema.define(version: 2020_04_07_140013) do
     t.string "reason"
     t.bigint "customer_id"
     t.float "amount"
-    t.bigint "agent_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["agent_id"], name: "index_send_unit_values_on_agent_id"
     t.index ["customer_id"], name: "index_send_unit_values_on_customer_id"
     t.index ["user_id"], name: "index_send_unit_values_on_user_id"
   end
@@ -393,10 +389,8 @@ ActiveRecord::Schema.define(version: 2020_04_07_140013) do
   add_foreign_key "remote_nafamas", "customers"
   add_foreign_key "remote_nafamas", "users"
   add_foreign_key "remote_unit_values", "users"
-  add_foreign_key "return_unit_values", "agents"
   add_foreign_key "return_unit_values", "customers"
   add_foreign_key "return_unit_values", "users"
-  add_foreign_key "send_unit_values", "agents"
   add_foreign_key "send_unit_values", "customers"
   add_foreign_key "send_unit_values", "users"
   add_foreign_key "shops", "localities"

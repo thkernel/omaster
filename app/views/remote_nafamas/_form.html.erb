@@ -6,7 +6,7 @@
 
  <div class="form-group">
     <%= form.label :customer_id, "Client", class: "required" %> <br />
-    <%= form.collection_select(:customer_id, @customers, :id, :name, {prompt: "Sélectionner"}, class: "form-control", required: true) %> 
+    <%= form.collection_select(:customer_id, @customers, :id, :contact_name, {prompt: "Sélectionner"}, class: "form-control", required: true) %> 
 
   </div>
 

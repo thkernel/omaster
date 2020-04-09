@@ -22,6 +22,7 @@ class HeadPontsController < ApplicationController
 
   # GET /head_ponts/1/edit
   def edit
+    @head_pont_types = HeadPontType.all
   end
 
   # POST /head_ponts
@@ -31,6 +32,7 @@ class HeadPontsController < ApplicationController
 
     respond_to do |format|
       if @head_pont.save
+        @head_ponts = HeadPont.all
         format.html { redirect_to @head_pont, notice: 'Head pont was successfully created.' }
         format.json { render :show, status: :created, location: @head_pont }
         format.js
@@ -46,8 +48,10 @@ class HeadPontsController < ApplicationController
   def update
     respond_to do |format|
       if @head_pont.update(head_pont_params)
+        @head_ponts = HeadPont.all
         format.html { redirect_to @head_pont, notice: 'Head pont was successfully updated.' }
         format.json { render :show, status: :ok, location: @head_pont }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @head_pont.errors, status: :unprocessable_entity }

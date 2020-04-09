@@ -20,12 +20,16 @@ class PaymentsController < ApplicationController
   # GET /payments/new
   def new
     @payment_types = PaymentType.all
+    @checkouts = Checkout.all
     @send_unit_values = SendUnitValue.all
     @payment = Payment.new
   end
 
   # GET /payments/1/edit
   def edit
+     @payment_types = PaymentType.all
+    @checkouts = Checkout.all
+    @send_unit_values = SendUnitValue.all
   end
 
   # POST /payments

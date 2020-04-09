@@ -23,6 +23,9 @@ class ReturnUnitValuesController < ApplicationController
 
   # GET /return_unit_values/1/edit
   def edit
+    
+    @customers = Customer.all
+    @agents = Agent.all
   end
 
   # POST /return_unit_values
@@ -32,6 +35,10 @@ class ReturnUnitValuesController < ApplicationController
 
     respond_to do |format|
       if @return_unit_value.save
+
+        @return_unit_values = ReturnUnitValue.all
+
+
         format.html { redirect_to @return_unit_value, notice: 'Return unit value was successfully created.' }
         format.json { render :show, status: :created, location: @return_unit_value }
         format.js
@@ -47,6 +54,10 @@ class ReturnUnitValuesController < ApplicationController
   def update
     respond_to do |format|
       if @return_unit_value.update(return_unit_value_params)
+
+        @return_unit_values = ReturnUnitValue.all
+
+
         format.html { redirect_to @return_unit_value, notice: 'Return unit value was successfully updated.' }
         format.json { render :show, status: :ok, location: @return_unit_value }
         format.js
@@ -80,6 +91,6 @@ class ReturnUnitValuesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def return_unit_value_params
-      params.require(:return_unit_value).permit(:reason, :customer_id, :amount, :agent_id, :user_id)
+      params.require(:return_unit_value).permit(:reason, :customer_id, :amount)
     end
 end
